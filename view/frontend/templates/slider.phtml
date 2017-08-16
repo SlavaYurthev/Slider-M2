@@ -16,6 +16,9 @@
 	<?php endforeach; ?>
 </ul>
 <link rel="stylesheet" type="text/css" href="<?php echo $block->getViewFileUrl('SY_Slider::css/bxslider.css'); ?>">
+<style type="text/css">
+<?php echo $this->getOption('css'); ?>
+</style>
 <script type="text/javascript">
 require(['jquery', 'SY_Slider/js/bxslider'], function(jQuery, bxslider){
 	jQuery('.bxslider').bxSlider(<?php echo $this->getOptionsJson(); ?>);

@@ -39,12 +39,15 @@ class Slider extends \Magento\Framework\View\Element\Template {
 		return $this->_collection;
 	}
 	public function getOption($key){
-		return (bool)$this->_helper->getConfigValue('options/'.$key);
+		return $this->_helper->getConfigValue('options/'.$key);
+	}
+	public function getOptionFlag($key){
+		return (bool)$this->getOption($key);
 	}
 	public function getOptions(){
 		if(count($this->options)>0){
 			foreach ($this->options as $key => $value) {
-				$this->options[$key] = $this->getOption($key);
+				$this->options[$key] = $this->getOptionFlag($key);
 			}
 		}
 		$this->options['captions'] = true;

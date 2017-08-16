@@ -21,6 +21,12 @@
 				<auto>1</auto>
 				<controls>1</controls>
 				<pager>1</pager>
+				<css><![CDATA[.bx-wrapper .bx-viewport {
+	border: none;
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}]]></css>
 			</options>
 		</sy_slider>
 	</default>

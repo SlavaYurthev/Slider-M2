@@ -60,6 +60,9 @@
 					<label>Pager</label>
 					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
 				</field>
+				<field id="css" translate="label" type="textarea" sortOrder="4" showInDefault="1" showInWebsite="0" showInStore="0">
+					<label>CSS</label>
+				</field>
 			</group>
 		</section>
 	</system>
