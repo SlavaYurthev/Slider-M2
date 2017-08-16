@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Slider
+ * 
+ * @author Slava Yurthev
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd" layout="admin-2columns-left">
+	<body>
+		<referenceContainer name="left">
+			<block class="SY\Slider\Block\Adminhtml\Items\Edit\Tabs" name="sy_slider_items_edit_tabs"/>
+		</referenceContainer>
+		<referenceContainer name="content">
+			<block class="SY\Slider\Block\Adminhtml\Items\Edit" name="sy_slider_items_edit"/>
+		</referenceContainer>
+	</body>
+</page>

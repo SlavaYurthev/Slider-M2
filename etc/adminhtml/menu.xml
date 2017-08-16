@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Slider
+ * 
+ * @author Slava Yurthev
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+	<menu>
+		<update id="SY::core"
+			 title="Slava Yurthev"
+			 module="SY_Slider"
+			 sortOrder="9999"
+			 resource="Magento_Backend::content" />
+		<update id="SY::developer"
+			 title="Developer"
+			 module="Magento_Backend" 
+			 sortOrder="1000"
+			 parent="SY::core"
+			 resource="Magento_Backend::content" />
+		<update id="SY::developer_developer"
+			 title="Developer"
+			 module="Magento_Backend" 
+			 sortOrder="1000"
+			 parent="SY::developer"
+			 action="adminhtml/system_config/edit/section/sy_developer/"
+			 resource="Magento_Backend::content" />
+		<add id="SY_Slider::section"
+			 title="Slider"
+			 module="SY_Slider" 
+			 sortOrder="0"
+			 parent="SY::core"
+			 resource="Magento_Backend::content" />
+		<add id="SY_Slider::items"
+			 title="Items"
+			 module="SY_Slider" 
+			 sortOrder="0"
+			 parent="SY_Slider::section"
+			 action="sy_slider/items"
+			 resource="SY_Slider::items" />
+		<add id="SY_Slider::configuration"
+			 title="Configuration"
+			 module="SY_Slider" 
+			 sortOrder="0"
+			 parent="SY_Slider::section"
+			 action="adminhtml/system_config/edit/section/sy_slider/"
+			 resource="SY_Slider::configuration" />
+	</menu>
+</config>

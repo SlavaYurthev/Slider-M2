@@ -1,0 +1,24 @@
+<?php if($this->getCollection()->count()>0): ?>
+<ul class="bxslider">
+	<?php foreach($this->getCollection() as $item): ?>
+		<li>
+			<?php if($item->getData('title')): ?>
+				<?php echo $item->getData('title'); ?>
+			<?php endif; ?>
+			<?php if($item->getData('url')): ?>
+				<a href="<?php echo $item->getData('url'); ?>">
+			<?php endif; ?>
+			<img src="<?php echo $item->getData('image'); ?>" <?php if($item->getData('caption')): ?>alt="<?php echo $item->getData('caption'); ?>" title="<?php echo $item->getData('caption'); ?>"<?php endif; ?> />
+			<?php if($item->getData('url')): ?>
+				</a>
+			<?php endif; ?>
+		</li>
+	<?php endforeach; ?>
+</ul>
+<link rel="stylesheet" type="text/css" href="<?php echo $block->getViewFileUrl('SY_Slider::css/bxslider.css'); ?>">
+<script type="text/javascript">
+require(['jquery', 'SY_Slider/js/bxslider'], function(jQuery, bxslider){
+	jQuery('.bxslider').bxSlider(<?php echo $this->getOptionsJson(); ?>);
+}); 
+</script>
+<?php endif; ?>

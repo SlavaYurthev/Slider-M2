@@ -1,0 +1,158 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Slider
+ * 
+ * @author Slava Yurthev
+ */
+-->
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+	<argument name="data" xsi:type="array">
+		<item name="js_config" xsi:type="array">
+			<item name="provider" xsi:type="string">sy_slider_items_listing.sy_slider_items_listing_data_source</item>
+			<item name="deps" xsi:type="string">sy_slider_items_listing.sy_slider_items_listing_data_source</item>
+		</item>
+		<item name="spinner" xsi:type="string">sy_slider_items_columns</item>
+		<item name="buttons" xsi:type="array">
+			<item name="add" xsi:type="array">
+				<item name="name" xsi:type="string">add</item>
+				<item name="label" xsi:type="string" translate="true">Add New Item</item>
+				<item name="class" xsi:type="string">primary</item>
+				<item name="url" xsi:type="string">*/*/add</item>
+			</item>
+		</item>
+	</argument>
+	<dataSource name="sy_slider_items_listing_data_source">
+		<argument name="dataProvider" xsi:type="configurableObject">
+			<argument name="class" xsi:type="string">SYSliderGridDataProvider</argument>
+			<argument name="name" xsi:type="string">sy_slider_items_listing_data_source</argument>
+			<argument name="primaryFieldName" xsi:type="string">id</argument>
+			<argument name="requestFieldName" xsi:type="string">id</argument>
+ 
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="update_url" xsi:type="url" path="mui/index/render"/>
+				</item>
+			</argument>
+		</argument>
+		<argument name="data" xsi:type="array">
+			<item name="js_config" xsi:type="array">
+				<item name="component" xsi:type="string">Magento_Ui/js/grid/provider</item>
+			</item>
+		</argument>
+	</dataSource>
+	<container name="listing_top">
+		<argument name="data" xsi:type="array">
+			<item name="config" xsi:type="array">
+				<item name="template" xsi:type="string">ui/grid/toolbar</item>
+			</item>
+		</argument>
+		<paging name="listing_paging">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="storageConfig" xsi:type="array">
+						<item name="provider" xsi:type="string">sy_slider_items_listing.sy_slider_items_listing.listing_top.bookmarks</item>
+						<item name="namespace" xsi:type="string">current.paging</item>
+					</item>
+					<item name="selectProvider" xsi:type="string">sy_slider_items_listing.sy_slider_items_listing.sy_slider_items_columns.ids</item>
+					<item name="displayArea" xsi:type="string">bottom</item>
+					<item name="options" xsi:type="array">
+						<item name="20" xsi:type="array">
+							<item name="value" xsi:type="number">20</item>
+							<item name="label" xsi:type="string" translate="true">20</item>
+						</item>
+						<item name="30" xsi:type="array">
+							<item name="value" xsi:type="number">30</item>
+							<item name="label" xsi:type="string" translate="true">30</item>
+						</item>
+						<item name="50" xsi:type="array">
+							<item name="value" xsi:type="number">50</item>
+							<item name="label" xsi:type="string" translate="true">50</item>
+						</item>
+						<item name="100" xsi:type="array">
+							<item name="value" xsi:type="number">100</item>
+							<item name="label" xsi:type="string" translate="true">100</item>
+						</item>
+						<item name="200" xsi:type="array">
+							<item name="value" xsi:type="number">200</item>
+							<item name="label" xsi:type="string" translate="true">200</item>
+						</item>
+					</item>
+				</item>
+			</argument>
+		</paging>
+	</container>
+	<columns name="sy_slider_items_columns">
+		<column name="id">
+			<argument name="data" xsi:type="array">
+				<item name="js_config" xsi:type="array">
+					<item name="component" xsi:type="string">Magento_Ui/js/grid/columns/column</item>
+				</item>
+				<item name="config" xsi:type="array">
+					<item name="indexField" xsi:type="string">id</item>
+					<item name="filter" xsi:type="string">text</item>
+					<item name="sorting" xsi:type="string">desc</item>
+					<item name="label" xsi:type="string" translate="true">ID</item>
+				</item>
+			</argument>
+		</column>
+		<column name="title">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="filter" xsi:type="string">text</item>
+					<item name="label" xsi:type="string" translate="true">Title</item>
+				</item>
+			</argument>
+		</column>
+		<column name="caption">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="filter" xsi:type="string">text</item>
+					<item name="label" xsi:type="string" translate="true">Caption</item>
+				</item>
+			</argument>
+		</column>
+		<column name="url">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="filter" xsi:type="string">text</item>
+					<item name="label" xsi:type="string" translate="true">Url</item>
+				</item>
+			</argument>
+		</column>
+		<column name="image" class="SY\Slider\Ui\Component\Listing\Column\Image">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="component" xsi:type="string">Magento_Ui/js/grid/columns/thumbnail</item>
+					<item name="filter" xsi:type="string">text</item>
+					<item name="label" xsi:type="string" translate="true">Image</item>
+				</item>
+			</argument>
+		</column>
+		<column name="active" class="SY\Slider\Ui\Component\Listing\Column\Yesno">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="filter" xsi:type="string">text</item>
+					<item name="label" xsi:type="string" translate="true">Active</item>
+				</item>
+			</argument>
+		</column>
+		<column name="sort">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="filter" xsi:type="string">text</item>
+					<item name="label" xsi:type="string" translate="true">Sort</item>
+				</item>
+			</argument>
+		</column>
+		<actionsColumn name="actions" class="SY\Slider\Ui\Component\Listing\Column\PostActions">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="resizeEnabled" xsi:type="boolean">false</item>
+					<item name="resizeDefaultWidth" xsi:type="string">10</item>
+					<item name="indexField" xsi:type="string">id</item>
+				</item>
+			</argument>
+		</actionsColumn>
+	</columns>
+</listing>
