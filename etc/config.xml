@@ -17,6 +17,9 @@
 			</contacts>
 		</sy_developer>
 		<sy_slider>
+			<inserts>
+				<homepage>1</homepage>
+			</inserts>
 			<options>
 				<auto>1</auto>
 				<controls>1</controls>

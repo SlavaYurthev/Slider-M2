@@ -61,7 +61,7 @@ class Save extends Action {
 			}
 			$this->_objectManager->get('Magento\Backend\Model\Session')->setFormData(false);
 			return $resultRedirect->setPath('*/*/');
-		} catch (Exception $e) {
+		} catch (\Exception $e) {
 			$this->messageManager->addException($e, __('Something went wrong.'));
 		}
 		$this->_getSession()->setFormData($data);

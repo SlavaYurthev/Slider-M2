@@ -18,20 +18,20 @@
 	</virtualType>
 	<virtualType name="SYSliderGridDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
 		<arguments>
-			<argument name="collection" xsi:type="object" shared="false">SY\Slider\Model\Resource\Item\Collection</argument>
+			<argument name="collection" xsi:type="object" shared="false">SY\Slider\Model\ResourceModel\Item\Collection</argument>
 			<argument name="filterPool" xsi:type="object" shared="false">SYSliderGridFilterPool</argument>
 		</arguments>
 	</virtualType>
-	<virtualType name="SY\Slider\Model\Resource\Item\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+	<virtualType name="SY\Slider\Model\ResourceModel\Item\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
 		<arguments>
 			<argument name="mainTable" xsi:type="string">sy_slider</argument>
-			<argument name="resourceModel" xsi:type="string">SY\Slider\Model\Resource\Item</argument>
+			<argument name="resourceModel" xsi:type="string">SY\Slider\Model\ResourceModel\Item</argument>
 		</arguments>
 	</virtualType>
 	<type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
 		<arguments>
 			<argument name="collections" xsi:type="array">
-				<item name="sy_slider_items_listing_data_source" xsi:type="string">SY\Slider\Model\Resource\Item\Grid\Collection</item>
+				<item name="sy_slider_items_listing_data_source" xsi:type="string">SY\Slider\Model\ResourceModel\Item\Grid\Collection</item>
 			</argument>
 		</arguments>
 	</type>

@@ -45,7 +45,15 @@
 			<label>Slider</label>
 			<tab>slava_yurthev</tab>
 			<resource>SY_Slider::configuration</resource>
-			<group id="options" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+			<group id="inserts" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+				<label>Inserts</label>
+				<field id="homepage" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+					<label>Home Page</label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+					<comment>Insert slider to home page</comment>
+				</field>
+			</group>
+			<group id="options" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="0" showInStore="0">
 				<label>Options</label>
 				<field id="auto" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
 					<label>Auto</label>
