@@ -21,7 +21,7 @@ class Slider extends \Magento\Framework\View\Element\Template {
 		$collection = $item->getCollection()->addFieldToFilter('image', ['notnull'=>true])->setOrder('sort', 'asc');
 		if($collection->count()>0){
 			foreach ($collection as $item) {
-				if(is_file($directoryList->getRoot().$item->getData('image'))){
+				if(is_file($directoryList->getRoot().$item->getData('image')) && $item->getData('active') == "1"){
 					$_collection->addItem($item);
 				}
 			}
