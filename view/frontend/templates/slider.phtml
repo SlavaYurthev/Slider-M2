@@ -21,7 +21,9 @@
 </style>
 <script type="text/javascript">
 require(['jquery', 'SY_Slider/js/bxslider'], function(jQuery, bxslider){
-	jQuery('.bxslider').bxSlider(<?php echo $this->getOptionsJson(); ?>);
+	jQuery(document).ready(function(){
+		jQuery('.bxslider').bxSlider(<?php echo $this->getOptionsJson(); ?>);
+	});
 }); 
 </script>
 <?php endif; ?>
