@@ -24,6 +24,7 @@
 				<auto>1</auto>
 				<controls>1</controls>
 				<pager>1</pager>
+				<adaptiveHeight>0</adaptiveHeight>
 				<css><![CDATA[.bx-wrapper .bx-viewport {
 	border: none;
 	-moz-box-shadow: none;

@@ -1,0 +1,20 @@
+/**
+ * Slider
+ * 
+ * @author Slava Yurthev
+ */
+.bx-wrapper .bx-controls-direction a {
+	-webkit-transition:none;
+	-moz-transition:none;
+	-ms-transition:none;
+	-o-transition:none;
+	transition:none;
+}
+.bx-wrapper .bx-caption h2 {
+	color: #fff;
+	font-family: Arial;
+	display: block;
+	font-size: 1.2em;
+	padding: 10px;
+	margin: 0;
+}

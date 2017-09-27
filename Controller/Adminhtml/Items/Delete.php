@@ -24,9 +24,6 @@ class Delete extends Action {
 			$model->load($id);
 			try {
 				$model->delete();
-				$directory = $this->_objectManager->get('\Magento\Framework\Filesystem\DirectoryList');
-				$io = $this->_objectManager->get('Magento\Framework\Filesystem\Io\File');
-				$io->rmdir($directory->getRoot().'/media/slider/'.$id.'/', true);
 				$this->messageManager->addSuccess(__('Deleted.'));
 			} catch (\Exception $e) {
 				$this->messageManager->addSuccess(__('Something went wrong.'));

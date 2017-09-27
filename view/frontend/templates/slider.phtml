@@ -1,28 +1,45 @@
+<?php
+/**
+ * Slider
+ * 
+ * @author Slava Yurthev
+ */
+?>
 <?php if($this->getCollection()->count()>0): ?>
 <ul class="bxslider">
 	<?php foreach($this->getCollection() as $item): ?>
 		<li>
-			<?php if($item->getData('title')): ?>
-				<?php echo $item->getData('title'); ?>
-			<?php endif; ?>
 			<?php if($item->getData('url')): ?>
 				<a href="<?php echo $item->getData('url'); ?>">
 			<?php endif; ?>
-			<img src="<?php echo $item->getData('image'); ?>" <?php if($item->getData('caption')): ?>alt="<?php echo $item->getData('caption'); ?>" title="<?php echo $item->getData('caption'); ?>"<?php endif; ?> />
+			<img src="<?php echo $item->getData('image'); ?>" />
 			<?php if($item->getData('url')): ?>
 				</a>
+			<?php endif; ?>
+			<?php if($item->getData('title') || $item->getData('caption')): ?>
+				<div class="bx-caption">
+					<?php if($item->getData('title')): ?>
+						<h2><?php echo $item->getData('title'); ?></h2>
+					<?php endif; ?>
+					<?php if($item->getData('caption')): ?>
+						<span><?php echo $item->getData('caption'); ?></span>
+					<?php endif; ?>
+				</div>
 			<?php endif; ?>
 		</li>
 	<?php endforeach; ?>
 </ul>
 <link rel="stylesheet" type="text/css" href="<?php echo $block->getViewFileUrl('SY_Slider::css/bxslider.css'); ?>">
+<link rel="stylesheet" type="text/css" href="<?php echo $block->getViewFileUrl('SY_Slider::css/custom.css'); ?>">
 <style type="text/css">
 <?php echo $this->getOption('css'); ?>
 </style>
 <script type="text/javascript">
-require(['jquery', 'SY_Slider/js/bxslider'], function(jQuery, bxslider){
-	jQuery(document).ready(function(){
-		jQuery('.bxslider').bxSlider(<?php echo $this->getOptionsJson(); ?>);
+require(['jquery'], function(jQuery){
+	jQuery(function(){
+		require(['SY_Slider/js/bxslider'], function(){
+			jQuery('.bxslider').bxSlider(<?php echo $this->getOptionsJson(); ?>);
+		});
 	});
 }); 
 </script>

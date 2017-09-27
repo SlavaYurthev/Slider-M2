@@ -45,30 +45,34 @@
 			<label>Slider</label>
 			<tab>slava_yurthev</tab>
 			<resource>SY_Slider::configuration</resource>
-			<group id="inserts" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+			<group id="inserts" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
 				<label>Inserts</label>
-				<field id="homepage" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+				<field id="homepage" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
 					<label>Home Page</label>
 					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
 					<comment>Insert slider to home page</comment>
 				</field>
 			</group>
-			<group id="options" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="0" showInStore="0">
+			<group id="options" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
 				<label>Options</label>
-				<field id="auto" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+				<field id="auto" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
 					<label>Auto</label>
 					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
 					<comment>Slides will automatically transition</comment>
 				</field>
-				<field id="controls" translate="label" type="select" sortOrder="2" showInDefault="1" showInWebsite="0" showInStore="0">
+				<field id="controls" translate="label" type="select" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
 					<label>Controls</label>
 					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
 				</field>
-				<field id="pager" translate="label" type="select" sortOrder="3" showInDefault="1" showInWebsite="0" showInStore="0">
+				<field id="pager" translate="label" type="select" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
 					<label>Pager</label>
 					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
 				</field>
-				<field id="css" translate="label" type="textarea" sortOrder="4" showInDefault="1" showInWebsite="0" showInStore="0">
+				<field id="adaptiveHeight" translate="label" type="select" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>adaptiveHeight</label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				</field>
+				<field id="css" translate="label" type="textarea" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
 					<label>CSS</label>
 				</field>
 			</group>

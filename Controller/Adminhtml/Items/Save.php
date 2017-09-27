@@ -30,7 +30,9 @@ class Save extends Action {
 		$image = false;
 		if($id) {
 			$model->load($id);
-			$image = $model->getData('image');
+			if($model->getData('image')){
+				$image = $model->getData('image');
+			}
 		}
 		$model->setData($data);
 		try {
