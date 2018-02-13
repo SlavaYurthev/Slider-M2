@@ -3,6 +3,23 @@
  * 
  * @author Slava Yurthev
  */
+.bx-wrapper .bx-viewport {
+ 	left: 0;
+}
+.bx-wrapper .bx-viewport > .bxslider {
+	display: block;
+	margin-left: 0;
+	list-style: none;
+}
+.bx-wrapper .bx-viewport > .bxslider::after {
+	content: "";
+	display: block;
+	width: 100%;
+	clear: both;
+}
+.bx-wrapper .bx-viewport > .bxslider > li {
+	display: block;
+}
 .bx-wrapper .bx-controls-direction a {
 	-webkit-transition:none;
 	-moz-transition:none;

@@ -54,9 +54,13 @@ class Save extends Action {
 						if($image){
 							@unlink($directory->getRoot().$image);
 						}
-					} catch (\Exception $e) {}
+					} catch (\Exception $e) {
+						$this->messageManager->addException($e, $e->getMessage());
+					}
 				}
-			} catch (\Exception $e) {}
+			} catch (\Exception $e) {
+				$this->messageManager->addException($e, $e->getMessage());
+			}
 			$this->messageManager->addSuccess(__('Saved.'));
 			if ($this->getRequest()->getParam('back')) {
 				return $resultRedirect->setPath('*/*/edit', ['id' => $model->getId(), '_current' => true]);

@@ -11,6 +11,7 @@ class Slider extends \Magento\Framework\View\Element\Template {
 	private $_helper;
 	private $_directory;
 	private $_options;
+	private $_ids;
 	public $_template = 'SY_Slider::slider.phtml';
 	public function __construct(
 			\Magento\Framework\View\Element\Template\Context $context,
@@ -44,7 +45,7 @@ class Slider extends \Magento\Framework\View\Element\Template {
 	}
 	public function _getCollection(){
 		$collection = $this->_collection;
-		if($this->getIds()){
+		if(!empty($this->getIds())){
 			$collection->addFieldToFilter('id', ['in' => $this->getIds()]);
 		}
 		$collection->addFieldToFilter('image', ['notnull' => true]);
@@ -53,15 +54,24 @@ class Slider extends \Magento\Framework\View\Element\Template {
 		return $collection;
 	}
 	private function getIds(){
-		if($this->getData('ids')){
-			if(is_array($this->getData('ids'))){
-				return $this->getData('ids');
-			}
-			elseif(is_string($this->getData('ids'))){
-				$ids = preg_replace('/\s+/', '', $this->getData('ids'));
-				return explode(",", $ids);
+		if(!$this->_ids){
+			$this->_ids = [];
+			if($this->getData('ids')){
+				if(is_array($this->getData('ids'))){
+					$this->_ids = array_filter($this->getData('ids'), 'is_numeric');
+				}
+				elseif(is_string($this->getData('ids'))){
+					$this->_ids = array_filter(
+						explode(
+							",", 
+							preg_replace('/\s+/', '', $this->getData('ids'))
+						),
+						'is_numeric'
+					);
+				}
 			}
 		}
+		return $this->_ids;
 	}
 	public function hasImage(\SY\Slider\Model\Item $item){
 		if($item->getData('image') && is_file($this->_directory->getRoot().$item->getData('image'))){
