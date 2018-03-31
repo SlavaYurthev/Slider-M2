@@ -7,12 +7,12 @@
 namespace SY\Slider\Block;
 
 class Slider extends \Magento\Framework\View\Element\Template {
-	private $_collection;
-	private $_helper;
-	private $_directory;
-	private $_options;
-	private $_ids;
-	private $_storeManager;
+	protected $_collection;
+	protected $_helper;
+	protected $_directory;
+	protected $_options;
+	protected $_ids;
+	protected $_storeManager;
 	public $_template = 'SY_Slider::slider.phtml';
 	public function __construct(
 			\Magento\Framework\View\Element\Template\Context $context,

@@ -6,7 +6,7 @@
  */
 ?>
 <?php if($this->getCollection()->count()>0): ?>
-<ul class="bxslider">
+<ul class="bxslider" data-mage-init='{"SY_Slider/js/slider":<?php echo $this->getOptionsJson(); ?>}'>
 	<?php foreach($this->getCollection() as $item): ?>
 		<li>
 			<?php if($item->getData('url')): ?>
@@ -34,13 +34,4 @@
 <style type="text/css">
 <?php echo $this->getOption('css'); ?>
 </style>
-<script type="text/javascript">
-require(['jquery'], function(jQuery){
-	jQuery(function(){
-		require(['SY_Slider/js/bxslider'], function(){
-			jQuery('.bxslider').bxSlider(<?php echo $this->getOptionsJson(); ?>);
-		});
-	});
-}); 
-</script>
 <?php endif; ?>
