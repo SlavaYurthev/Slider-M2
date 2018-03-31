@@ -12,14 +12,17 @@ class Slider extends \Magento\Framework\View\Element\Template {
 	private $_directory;
 	private $_options;
 	private $_ids;
+	private $_storeManager;
 	public $_template = 'SY_Slider::slider.phtml';
 	public function __construct(
 			\Magento\Framework\View\Element\Template\Context $context,
 			\Magento\Framework\Filesystem\DirectoryList $directoryList,
+			\Magento\Store\Model\StoreManagerInterface $storeManager,
 			\SY\Slider\Helper\Data $helper,
 			\SY\Slider\Model\ResourceModel\Item\CollectionFactory $collectionFactory,
 			array $data = []
 		){
+		$this->_storeManager = $storeManager;
 		$this->_collection = $collectionFactory->create();
 		$this->_helper = $helper;
 		$this->_directory = $directoryList;
@@ -95,5 +98,11 @@ class Slider extends \Magento\Framework\View\Element\Template {
 	}
 	public function getOptionsJson(){
 		return json_encode($this->getOptions());
+	}
+	public function getBaseUrl(){
+		return rtrim(
+			$this->_storeManager->getStore()->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_WEB),
+			'/'
+		);
 	}
 }

@@ -12,7 +12,7 @@
 			<?php if($item->getData('url')): ?>
 				<a href="<?php echo $item->getData('url'); ?>">
 			<?php endif; ?>
-			<img src="<?php echo $item->getData('image'); ?>" />
+			<img src="<?php echo $this->getBaseUrl().'/'.ltrim($item->getData('image'), '/'); ?>" />
 			<?php if($item->getData('url')): ?>
 				</a>
 			<?php endif; ?>
