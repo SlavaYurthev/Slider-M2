@@ -59,7 +59,9 @@ class Save extends Action {
 					}
 				}
 			} catch (\Exception $e) {
-				$this->messageManager->addException($e, $e->getMessage());
+				if ($e->getCode() != \Magento\Framework\File\Uploader::TMP_NAME_EMPTY) {
+					$this->messageManager->addException($e, $e->getMessage());
+				}
 			}
 			$this->messageManager->addSuccess(__('Saved.'));
 			if ($this->getRequest()->getParam('back')) {
