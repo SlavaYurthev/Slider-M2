@@ -1,9 +1,7 @@
 {
     "name": "sy/slider",
     "description": "Inject Slider into Your Website",
-    "license": [
-        "OSL-3.0"
-    ],
+    "license": "MIT",
     "type": "magento2-module",
     "version": "0.4.0",
     "minimum-stability": "dev",

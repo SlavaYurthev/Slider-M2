@@ -17,12 +17,11 @@ class Slider extends \Magento\Framework\View\Element\Template {
 	public function __construct(
 			\Magento\Framework\View\Element\Template\Context $context,
 			\Magento\Framework\Filesystem\DirectoryList $directoryList,
-			\Magento\Store\Model\StoreManagerInterface $storeManager,
 			\SY\Slider\Helper\Data $helper,
 			\SY\Slider\Model\ResourceModel\Item\CollectionFactory $collectionFactory,
 			array $data = []
 		){
-		$this->_storeManager = $storeManager;
+		$this->_storeManager = $context->getStoreManager();
 		$this->_collection = $collectionFactory->create();
 		$this->_helper = $helper;
 		$this->_directory = $directoryList;
