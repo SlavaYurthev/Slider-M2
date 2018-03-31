@@ -6,6 +6,10 @@
     ],
     "type": "magento2-module",
     "version": "0.3.0",
+    "minimum-stability": "stable",
+    "require": {
+        "php": "7.0.2|7.0.4|~7.0.6|~7.1.0"
+    },
     "authors": [
         {
             "name": "Slava Yurthev",
