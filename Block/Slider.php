@@ -76,7 +76,7 @@ class Slider extends \Magento\Framework\View\Element\Template {
 		return $this->_ids;
 	}
 	public function hasImage(\SY\Slider\Model\Item $item){
-		if($item->getData('image') && is_file($this->_directory->getRoot().$item->getData('image'))){
+		if($item->getData('image') && is_file($this->_directory->getPath('pub').$item->getData('image'))){
 			return true;
 		}
 	}
