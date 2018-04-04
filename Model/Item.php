@@ -17,7 +17,7 @@ class Item extends AbstractModel {
 		$directory = $objectManager->get('\Magento\Framework\Filesystem\DirectoryList');
 		$io = $objectManager->get('Magento\Framework\Filesystem\Io\File');
 		try {
-			$io->rmdir($directory->getRoot().'/media/slider/'.$this->getData('id').'/', true);
+			$io->rmdir($directory->getPath('pub').'/media/slider/'.$this->getData('id').'/', true);
 		} catch (\Exception $e) {}
 		parent::afterDelete();
 	}
