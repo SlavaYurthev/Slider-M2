@@ -46,13 +46,13 @@ class Save extends Action {
 				);
 				$uploader->setAllowCreateFolders(true);
 				$uploader->setAllowedExtensions(['jpeg','jpg','png']);
-				if ($uploader->save($directory->getRoot().'/media/slider/'.$model->getId().'/')) {
+				if ($uploader->save($directory->getPath('pub').'/media/slider/'.$model->getId().'/')) {
 					$filename = $uploader->getUploadedFileName();
 					$model->setData('image', '/media/slider/'.$model->getId().'/'.$filename);
 					try {
 						$model->save();
 						if($image){
-							@unlink($directory->getRoot().$image);
+							@unlink($directory->getPath('pub').$image);
 						}
 					} catch (\Exception $e) {
 						$this->messageManager->addException($e, $e->getMessage());
