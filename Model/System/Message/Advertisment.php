@@ -37,7 +37,7 @@ class Advertisment implements \Magento\Framework\Notification\MessageInterface {
 					$ch = curl_init();
 					curl_setopt($ch, CURLOPT_URL, $this->url);
 					curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true); 
-					curl_setopt($ch, CURLOPT_TIMEOUT, 5);
+					curl_setopt($ch, CURLOPT_TIMEOUT, 15);
 					curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 					$json = curl_exec($ch);
 					$httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);

@@ -18,6 +18,15 @@ class Index extends Action {
 		parent::__construct($context);
 	}
 	public function execute() {
-		return $this->resultPageFactory->create();
+		$resultPage = $this->resultPageFactory->create();
+		$resultPage->getConfig()->getTitle()->set(__('Slava Yurthev Copyright'));
+		$layout = $resultPage->getLayout();
+		$layout->addBlock(
+			'SY\Slider\Block\Copyright', 
+			'sy.copyright', 
+			'content'
+		);
+		$this->_eventManager->dispatch('sy.copyright', ['layout' => $layout]);
+		return $resultPage;
 	}
 }

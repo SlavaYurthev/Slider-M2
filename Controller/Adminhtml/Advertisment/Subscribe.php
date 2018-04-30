@@ -31,7 +31,6 @@ class Subscribe extends \Magento\Backend\App\Action {
 		try {
 			$advertisment = json_decode(file_get_contents(rtrim($this->moduleDir, '/').'/'.ltrim($this->file, '/')), true);
 			$resultRedirectFactory->setUrl($advertisment['action']);
-			@unlink(rtrim($this->moduleDir, '/').'/'.ltrim($this->file, '/'));
 		} catch (\Exception $e) {}
 		return $resultRedirectFactory;
 	}
