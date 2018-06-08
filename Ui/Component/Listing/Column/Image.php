@@ -8,27 +8,29 @@ namespace SY\Slider\Ui\Component\Listing\Column;
 
 use Magento\Framework\View\Element\UiComponentFactory;
 use Magento\Framework\View\Element\UiComponent\ContextInterface;
-use Magento\Store\Model\StoreManagerInterface;
 
 class Image extends \Magento\Ui\Component\Listing\Columns\Column
 {
-	protected $storeManager;
+	protected $itemFactory;
 	public function __construct(
 		ContextInterface $context,
 		UiComponentFactory $uiComponentFactory,
-		StoreManagerInterface $storeManager,
+		\SY\Slider\Model\ItemFactory $itemFactory,
 		array $components = [],
 		array $data = []
 	) {
-		$this->storeManager = $storeManager;
+		$this->itemFactory = $itemFactory;
 		parent::__construct($context, $uiComponentFactory, $components, $data);
 	}
 	public function prepareDataSource(array $dataSource) {
 		if(isset($dataSource['data']['items'])) {
 			foreach($dataSource['data']['items'] as & $item) {
 				if($item) {
-					if(isset($item['image']) && (bool)$item['image'] !== false){
-						$item['image_src'] = $item['image'];
+					if(isset($item['id'])){
+						$_item = $this->itemFactory->create()->load($item['id']);
+						if($_item->hasImage()){
+							$item['image_src'] = $_item->getImageUrl();
+						}
 					}
 				}
 			}

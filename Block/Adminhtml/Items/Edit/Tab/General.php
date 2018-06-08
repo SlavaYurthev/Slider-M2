@@ -15,7 +15,6 @@ use Magento\Cms\Model\Wysiwyg\Config;
  
 class General extends Generic implements TabInterface {
 	protected $_wysiwygConfig;
-	protected $_newsStatus;
 	public function __construct(
 		Context $context,
 		Registry $registry,
@@ -42,7 +41,7 @@ class General extends Generic implements TabInterface {
 				['name' => 'id']
 			);
 		}
-		if($model->getData('image')){
+		if($model->hasImage()){
 			$fieldset->addField(
 				'thumbnail',
 				'note',
@@ -51,8 +50,8 @@ class General extends Generic implements TabInterface {
 					'label'	=> __(''),
 					'required' => false,
 					'note' => '<div>
-						<a href="'.$model->getData('image').'" target="_blank">
-							<img src="'.$model->getData('image').'" style="max-height:100px" />
+						<a href="'.$model->getImageUrl().'" target="_blank">
+							<img src="'.$model->getImageUrl().'" style="max-height:100px" />
 						</a>
 					</div>'
 				]
