@@ -38,7 +38,7 @@ class Slider extends \Magento\Framework\View\Element\Template {
 		if($collection->count()>0){
 			foreach ($collection as $key => $item) {
 				// unset items without images
-				if(!$this->hasImage($item)){
+				if(!$item->hasImage()){
 					$collection->removeItemByKey($key);
 				}
 			}
@@ -74,11 +74,6 @@ class Slider extends \Magento\Framework\View\Element\Template {
 			}
 		}
 		return $this->_ids;
-	}
-	public function hasImage(\SY\Slider\Model\Item $item){
-		if($item->getData('image') && is_file($this->_directory->getRoot().$item->getData('image'))){
-			return true;
-		}
 	}
 	public function getOption($key){
 		return $this->_helper->getConfigValue('options/'.$key, $this->_storeManager->getStore()->getId());

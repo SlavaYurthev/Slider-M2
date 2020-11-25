@@ -9,20 +9,23 @@ namespace SY\Slider\Controller\Adminhtml\Items;
 use \Magento\Backend\App\Action;
 use \Magento\Backend\App\Action\Context;
 use \Magento\Framework\View\Result\PageFactory;
+use \SY\Slider\Helper\Data as SliderHelper;
 
 class Save extends Action {
 	protected $_resultPageFactory;
 	protected $_resultPage;
+	protected $_sliderHelper;
 	public function __construct(
 			Context $context, 
-			PageFactory $resultPageFactory
+			PageFactory $resultPageFactory,
+			SliderHelper $sliderHelper
 		){
 		parent::__construct($context);
 		$this->_resultPageFactory = $resultPageFactory;
+		$this->_sliderHelper = $sliderHelper;
 	}
 	public function execute(){
 		$object_manager = $this->_objectManager;
-		$directory = $object_manager->get('\Magento\Framework\Filesystem\DirectoryList');
 		$data = $this->getRequest()->getPostValue();
 		$resultRedirect = $this->resultRedirectFactory->create();
 		$id = $this->getRequest()->getParam('id');
@@ -46,13 +49,15 @@ class Save extends Action {
 				);
 				$uploader->setAllowCreateFolders(true);
 				$uploader->setAllowedExtensions(['jpeg','jpg','png']);
-				if ($uploader->save($directory->getRoot().'/media/slider/'.$model->getId().'/')) {
+				if ($uploader->save(
+					$this->_sliderHelper->getUploadDir($model->getId())
+				)) {
 					$filename = $uploader->getUploadedFileName();
-					$model->setData('image', '/media/slider/'.$model->getId().'/'.$filename);
+					$model->setData('image', $model->getId().'/'.$filename);
 					try {
 						$model->save();
 						if($image){
-							@unlink($directory->getRoot().$image);
+							@unlink($this->_sliderHelper->getUploadDir($image));
 						}
 					} catch (\Exception $e) {
 						$this->messageManager->addException($e, $e->getMessage());
